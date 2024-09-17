@@ -1,4 +1,4 @@
-![Unit tests]https://github.com/AmineSHA/learn-cicd-starter/actions/workflows/ci.yml/badge.svg
+![Unit tests](https://github.com/AmineSHA/learn-cicd-starter/actions/workflows/ci.yml/badge.svg)
 
 # learn-cicd-starter (Notely)
 
