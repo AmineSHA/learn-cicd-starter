@@ -1,18 +1,19 @@
 package auth
 
 import (
-	"testing"
-	"reflect"
+	"errors"
 	"net/http"
+	"reflect"
+	"testing"
 )
 
 func TestGetAPIKeyEmpty(t *testing.T) {
-  got, got_error:= GetAPIKey({"Authorization"",})
-  want,want_error  := {}, ErrNoAuthHeaderIncluded
-  if !reflect.DeepEqual(want, got) {
-	t.Fatalf("expected: %v, got: %v", want, got)
-}
-
-
+	testHeader := http.Header{}
+	testHeader.Add("Authorization", "")
+	got, gotError := GetAPIKey(testHeader)
+	want, wantError := " ", errors.New("no authorization header included")
+	if !reflect.DeepEqual(want, got) {
+		t.Fatalf("expected: %v - %v, got: %v - %v", want, wantError, got, gotError)
+	}
 
 }
